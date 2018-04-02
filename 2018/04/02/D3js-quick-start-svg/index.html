@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>D3js快速入门 - 1、svg基础 | 钟文浩的博客</title><link rel="stylesheet" href="/libs/spoqa-han-sans-kr/css/SpoqaHanSans-kr.css"><link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/css/highlights/dracula.css"><link rel="canonical" href="http://zhongwenhao.cn/2018/04/02/D3js-quick-start-svg/"/>
+<meta name="description" content="前言SVG 意为可缩放矢量图形（Scalable Vector Graphics）。我们在对SVG绘制的图形缩放的时候，图像是不会失真的。SVG 使用 XML 格式定义图像，也就是说SVG遵循XML文档格式，它在浏览器上是以DOM形式存在，即文档对象模型（Document…">
+<meta name="keywords" content="svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="D3js快速入门 - 1、svg基础">
+<meta property="og:url" content="http://zhongwenhao.cn/2018/04/02/D3js-quick-start-svg/">
+<meta property="og:site_name" content="钟文浩的博客">
+<meta property="og:description" content="前言SVG 意为可缩放矢量图形（Scalable Vector Graphics）。我们在对SVG绘制的图形缩放的时候，图像是不会失真的。SVG 使用 XML 格式定义图像，也就是说SVG遵循XML文档格式，它在浏览器上是以DOM形式存在，即文档对象模型（Document…">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhongwenhao.cn/images/banner/svg.jpeg">
+<meta property="og:updated_time" content="2018-04-02T15:33:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="D3js快速入门 - 1、svg基础">
+<meta name="twitter:description" content="前言SVG 意为可缩放矢量图形（Scalable Vector Graphics）。我们在对SVG绘制的图形缩放的时候，图像是不会失真的。SVG 使用 XML 格式定义图像，也就是说SVG遵循XML文档格式，它在浏览器上是以DOM形式存在，即文档对象模型（Document…">
+<meta name="twitter:image" content="http://zhongwenhao.cn/images/banner/svg.jpeg"><meta property="article:author" content="zhongwenhao"><meta property="twitter:label1" content="Published at"><meta property="twitter:data1" content="2018-04-02 22:59:55"><meta property="twitter:label2" content="Written by"><meta property="twitter:data2" content="zhongwenhao"><link rel="icon" href="/images/favicon.ico"></head><body itemscope itemtype="https://schema.org/WebPage"><nav class="menu" id="menu"><div class="menu-inner"><div class="menu__left-area"><div class="menu__item"><a class="menu__item__link menu__item__link--brand" href="/" title="Home" rel="home"><img class="menu__item__link--brand__image" src="/images/favicon.ico" alt="钟文浩的博客"><span class="menu__item__link--brand__label">钟文浩的博客</span></a></div></div><div class="menu__right-area"><div class="menu__item"><a class="menu__item__link" href="/">主页</a></div><div class="menu__item"><a class="menu__item__link" href="/about">关于</a></div><div class="menu__item"><a class="menu__item__link" href="/archives">文章</a></div></div></div></nav><div class="page-background"></div><div class="content-container"><div class="content-outer"><div class="content-inner" itemscope itemtype="https://schema.org/Blog"><article class="article" id="article" itemscope itemtype="https://schema.org/BlogPosting"><h1 class="article__title" itemprop="headline">D3js快速入门 - 1、svg基础</h1><div class="article__meta"><time class="article__meta__time" datetime="2018-04-02T14:59:55.000Z" itemprop="datePublished">2018-04-02 22:59:55</time><div class="article__meta__categories"><a class="article__meta__categories__item" href="/categories/D3js/">D3js</a></div></div><div class="article__contents"><img src="/images/banner/svg.jpeg"/><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>SVG 意为可缩放矢量图形（Scalable Vector Graphics）。我们在对SVG绘制的图形缩放的时候，图像是不会失真的。<br>SVG 使用 XML 格式定义图像，也就是说SVG遵循XML文档格式，它在浏览器上是以DOM形式存在，即文档对象模型（Document Object Model）。<br>D3.js是基于SVG而封装的，主要用于交互式数据可视化。所以我们在入门D3.js的时候，我们就要对SVG又一个全面基础的认识。<br>这篇文章中，SVG在HTML中使用的的形式是直接嵌入SVG代码，更多使用方式请点击<a href="http://www.runoob.com/svg/svg-inhtml.html" target="_blank" rel="external">链接</a></p>
+<h1 id="内置图形"><a href="#内置图形" class="headerlink" title="内置图形"></a>内置图形</h1><h2 id="1、矩形"><a href="#1、矩形" class="headerlink" title="1、矩形"></a>1、矩形</h2><h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">rect</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">height</span>=<span class="string">"100"</span></span></div><div class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h3><blockquote>
+<ul>
+<li>rect 元素的 width 和 height 属性可定义矩形的高度和宽度</li>
+<li>x 属性定义矩形的左侧位置（例如，x=”0” 定义矩形到浏览器窗口左侧的距离是 0px）</li>
+<li>y 属性定义矩形的顶端位置（例如，y=”0” 定义矩形到浏览器窗口顶端的距离是 0px）</li>
+<li>rx 和 ry 属性可使矩形产生圆角</li>
+<li>style 属性用来定义 CSS 属性</li>
+<li>CSS 的 fill 属性定义矩形的填充颜色（rgb 值、颜色名或者十六进制值）</li>
+<li>CSS 的 stroke-width 属性定义矩形边框的宽度</li>
+<li>CSS 的 stroke 属性定义矩形边框的颜色</li>
+<li>CSS opacity 属性用于定义了元素的透明值 (范围: 0 到 1)。</li>
+<li>CSS 的 fill-opacity 属性定义填充颜色透明度（合法的范围是：0 - 1）</li>
+<li>CSS 的 stroke-opacity 属性定义笔触颜色的透明度（合法的范围是：0 - 1）</li>
+</ul>
+</blockquote>
+<h3 id="查看示例"><a href="#查看示例" class="headerlink" title="查看示例"></a><a href="https://jsfiddle.net/miSunLaughing/a46qq163/" target="_blank" rel="external">查看示例</a></h3><h2 id="2、圆形"><a href="#2、圆形" class="headerlink" title="2、圆形"></a>2、圆形</h2><h3 id="示例代码-1"><a href="#示例代码-1" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"100"</span> <span class="attr">cy</span>=<span class="string">"50"</span> <span class="attr">r</span>=<span class="string">"40"</span> <span class="attr">stroke</span>=<span class="string">"black"</span></span></div><div class="line"><span class="tag">  <span class="attr">stroke-width</span>=<span class="string">"2"</span> <span class="attr">fill</span>=<span class="string">"red"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="代码解析-1"><a href="#代码解析-1" class="headerlink" title="代码解析"></a>代码解析</h3><blockquote>
+<ul>
+<li>cx和cy属性定义圆点的x和y坐标。如果省略cx和cy，圆的中心会被设置为(0, 0)</li>
+<li>r属性定义圆的半径</li>
+</ul>
+</blockquote>
+<h3 id="查看示例-1"><a href="#查看示例-1" class="headerlink" title="查看示例"></a><a href="https://jsfiddle.net/miSunLaughing/a46qq163/" target="_blank" rel="external">查看示例</a></h3><h2 id="3、椭圆"><a href="#3、椭圆" class="headerlink" title="3、椭圆"></a>3、椭圆</h2><h3 id="示例代码-2"><a href="#示例代码-2" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">"300"</span> <span class="attr">cy</span>=<span class="string">"80"</span> <span class="attr">rx</span>=<span class="string">"100"</span> <span class="attr">ry</span>=<span class="string">"50"</span></span></div><div class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">"fill:yellow;stroke:purple;stroke-width:2"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="代码解析-2"><a href="#代码解析-2" class="headerlink" title="代码解析"></a>代码解析</h3><blockquote>
+<ul>
+<li>CX属性定义的椭圆中心的x坐标</li>
+<li>CY属性定义的椭圆中心的y坐标</li>
+<li>RX属性定义的水平半径</li>
+<li>RY属性定义的垂直半径</li>
+</ul>
+</blockquote>
+<h3 id="查看示例-2"><a href="#查看示例-2" class="headerlink" title="查看示例"></a><a href="https://jsfiddle.net/miSunLaughing/a46qq163/" target="_blank" rel="external">查看示例</a></h3><h2 id="4、直线"><a href="#4、直线" class="headerlink" title="4、直线"></a>4、直线</h2><h3 id="示例代码-3"><a href="#示例代码-3" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span>=<span class="string">"0"</span> <span class="attr">y1</span>=<span class="string">"0"</span> <span class="attr">x2</span>=<span class="string">"200"</span> <span class="attr">y2</span>=<span class="string">"200"</span></span></div><div class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">"stroke:rgb(255,0,0);stroke-width:2"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="代码解析-3"><a href="#代码解析-3" class="headerlink" title="代码解析"></a>代码解析</h3><blockquote>
+<ul>
+<li>x1 属性在 x 轴定义线条的开始</li>
+<li>y1 属性在 y 轴定义线条的开始</li>
+<li>x2 属性在 x 轴定义线条的结束</li>
+<li>y2 属性在 y 轴定义线条的结束</li>
+</ul>
+</blockquote>
+<h3 id="查看示例-3"><a href="#查看示例-3" class="headerlink" title="查看示例"></a><a href="https://jsfiddle.net/miSunLaughing/a46qq163/" target="_blank" rel="external">查看示例</a></h3><h2 id="5、曲线"><a href="#5、曲线" class="headerlink" title="5、曲线"></a>5、曲线</h2><h3 id="示例代码-4"><a href="#示例代码-4" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">polyline</span> <span class="attr">points</span>=<span class="string">"20,20 40,25 60,40 80,120 120,140 200,180"</span></span></div><div class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">"fill:none;stroke:black;stroke-width:3"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="代码解析-4"><a href="#代码解析-4" class="headerlink" title="代码解析"></a>代码解析</h3><blockquote>
+<ul>
+<li>points 属性定义多边形每个角的 x 和 y 坐标</li>
+</ul>
+</blockquote>
+<h3 id="查看示例-4"><a href="#查看示例-4" class="headerlink" title="查看示例"></a><a href="https://jsfiddle.net/miSunLaughing/a46qq163/" target="_blank" rel="external">查看示例</a></h3><h2 id="6、多边形"><a href="#6、多边形" class="headerlink" title="6、多边形"></a>6、多边形</h2><h3 id="示例代码-5"><a href="#示例代码-5" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">"200,10 250,190 160,210"</span></span></div><div class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">"fill:lime;stroke:purple;stroke-width:1"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="代码解析-5"><a href="#代码解析-5" class="headerlink" title="代码解析"></a>代码解析</h3><blockquote>
+<ul>
+<li>points 属性定义多边形每个角的 x 和 y 坐标</li>
+</ul>
+</blockquote>
+<h3 id="查看示例-5"><a href="#查看示例-5" class="headerlink" title="查看示例"></a><a href="https://jsfiddle.net/miSunLaughing/a46qq163/" target="_blank" rel="external">查看示例</a></h3><h2 id="7、路径"><a href="#7、路径" class="headerlink" title="7、路径"></a>7、路径</h2><h3 id="示例代码-6"><a href="#示例代码-6" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M150 0 L75 200 L225 200 Z"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="代码解析-6"><a href="#代码解析-6" class="headerlink" title="代码解析"></a>代码解析</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">M</td>
+<td style="text-align:center">moveto  移动到</td>
+<td style="text-align:center">(x y)</td>
+</tr>
+<tr>
+<td style="text-align:center">Z</td>
+<td style="text-align:center">closepath  关闭路径</td>
+<td style="text-align:center">(none)</td>
+</tr>
+<tr>
+<td style="text-align:center">L</td>
+<td style="text-align:center">lineto  画线到</td>
+<td style="text-align:center">(x y)</td>
+</tr>
+<tr>
+<td style="text-align:center">H</td>
+<td style="text-align:center">horizontal lineto  水平线到</td>
+<td style="text-align:center">x</td>
+</tr>
+<tr>
+<td style="text-align:center">V</td>
+<td style="text-align:center">vertical lineto  垂直线到</td>
+<td style="text-align:center">y</td>
+</tr>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">elliptical arc椭圆弧</td>
+<td style="text-align:center">(rx ry x-axis-rotation large-arc-flag sweep-flag x y)</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">curveto 三次贝塞尔曲线到</td>
+<td style="text-align:center">(x1 y1 x2 y2 x y)</td>
+</tr>
+<tr>
+<td style="text-align:center">S</td>
+<td style="text-align:center">smooth curveto光滑三次贝塞尔曲线到</td>
+<td style="text-align:center">(x2 y2 x y)</td>
+</tr>
+<tr>
+<td style="text-align:center">Q</td>
+<td style="text-align:center">Bézier curveto二次贝塞尔曲线到</td>
+<td style="text-align:center">(x1 y1 x y)</td>
+</tr>
+<tr>
+<td style="text-align:center">T</td>
+<td style="text-align:center">smooth Bézier curveto光滑二次贝塞尔曲线到</td>
+<td style="text-align:center">(x y)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p> 注意：以上所有命令均允许小写字母。大写表示绝对定位，小写表示相对定位。</p>
+</blockquote>
+<h3 id="查看示例-6"><a href="#查看示例-6" class="headerlink" title="查看示例"></a><a href="https://jsfiddle.net/miSunLaughing/a46qq163/" target="_blank" rel="external">查看示例</a></h3><h2 id="8、文本"><a href="#8、文本" class="headerlink" title="8、文本"></a>8、文本</h2><h3 id="示例代码-7"><a href="#示例代码-7" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">text</span> <span class="attr">x</span>=<span class="string">"0"</span> <span class="attr">y</span>=<span class="string">"15"</span> <span class="attr">fill</span>=<span class="string">"red"</span>&gt;</span>miSunLaughing<span class="tag">&lt;/<span class="name">text</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="代码解析-7"><a href="#代码解析-7" class="headerlink" title="代码解析"></a>代码解析</h3><blockquote>
+<ul>
+<li>x 属性定义矩形的左侧位置（例如，x=”0” 定义矩形到浏览器窗口左侧的距离是 0px）</li>
+<li>y 属性定义矩形的顶端位置（例如，y=”0” 定义矩形到浏览器窗口顶端的距离是 0px）</li>
+</ul>
+</blockquote>
+<h3 id="查看示例-7"><a href="#查看示例-7" class="headerlink" title="查看示例"></a><a href="https://jsfiddle.net/miSunLaughing/a46qq163/" target="_blank" rel="external">查看示例</a></h3><h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><h2 id="1、stroke属性"><a href="#1、stroke属性" class="headerlink" title="1、stroke属性"></a>1、stroke属性</h2><p>SVG提供了一个范围广泛stroke 属性。这几个属性多用来定义线条的样式。</p>
+<blockquote>
+<ul>
+<li>stroke.  线条颜色</li>
+<li>stroke-width   线条粗细</li>
+<li>stroke-linecap 线条闭合方式 </li>
+<li>stroke-dasharray 线条虚线数值组</li>
+</ul>
+</blockquote>
+<h2 id="2、定义和分组"><a href="#2、定义和分组" class="headerlink" title="2、定义和分组"></a>2、定义和分组</h2><p>定义可重用部件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">defs</span>&gt;</span><span class="tag">&lt;/<span class="name">defs</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>使用g分组，被该元素包裹的dom，可以视为一个整体，可以定义统一的样式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>使用<use xlink:href="#lens"></use>引用在defs中定义的元素，还可在use上设置fill，stroke等属性。<br>更多知识请点击<a href="https://www.w3cplus.com/svg/structuring-grouping-referencing-in-svg.html" target="_blank" rel="external">链接</a></p>
+<h3 id="示例代码-8"><a href="#示例代码-8" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"600"</span> <span class="attr">height</span>=<span class="string">"600"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">defs</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">polygon</span> <span class="attr">id</span>=<span class="string">"lens"</span> <span class="attr">points</span>=<span class="string">"65,50 185,50 185,75, 150,100 100,100 65,75"</span> <span class="attr">fill</span>=<span class="string">"red"</span> <span class="attr">stroke</span>=<span class="string">"purple"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span> /&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">radialGradient</span> <span class="attr">id</span>=<span class="string">"irisGradient"</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"25%"</span> <span class="attr">stop-color</span>=<span class="string">"green"</span> /&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"100%"</span> <span class="attr">stop-color</span>=<span class="string">"dodgerblue"</span> /&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">radialGradient</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"eye"</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cy</span>=<span class="string">"50"</span> <span class="attr">rx</span>=<span class="string">"50"</span> <span class="attr">ry</span>=<span class="string">"25"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">stroke</span>=<span class="string">"black"</span> /&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cy</span>=<span class="string">"50"</span> <span class="attr">r</span>=<span class="string">"25"</span> /&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cy</span>=<span class="string">"50"</span> <span class="attr">r</span>=<span class="string">"10"</span> <span class="attr">fill</span>=<span class="string">"black"</span> /&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">g</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">g</span> <span class="attr">stroke</span>=<span class="string">"red"</span> <span class="attr">stroke-width</span>=<span class="string">"3"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">"125"</span> <span class="attr">cy</span>=<span class="string">"50"</span> <span class="attr">rx</span>=<span class="string">"50"</span> <span class="attr">ry</span>=<span class="string">"25"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">stroke</span>=<span class="string">"black"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"125"</span> <span class="attr">cy</span>=<span class="string">"50"</span> <span class="attr">r</span>=<span class="string">"25"</span> <span class="attr">fill</span>=<span class="string">"url(#irisGradient)"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"125"</span> <span class="attr">cy</span>=<span class="string">"50"</span> <span class="attr">r</span>=<span class="string">"10"</span> <span class="attr">fill</span>=<span class="string">"black"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#eye"</span> <span class="attr">x</span>=<span class="string">"250"</span> <span class="attr">fill</span>=<span class="string">"dodgerblue"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">g</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="查看示例-8"><a href="#查看示例-8" class="headerlink" title="查看示例"></a><a href="https://jsfiddle.net/miSunLaughing/a46qq163/" target="_blank" rel="external">查看示例</a></h3><h2 id="3、事件"><a href="#3、事件" class="headerlink" title="3、事件"></a>3、事件</h2><p>最常用的是 onclick、onactivate、onmousedown、onmouseup、onmouseover、onmousemove、onmouseout、onload、onresize、 onunload 和 onrepeat。</p>
+<h4 id="示例代码-9"><a href="#示例代码-9" class="headerlink" title="示例代码"></a>示例代码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// html</div><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"600"</span> <span class="attr">height</span>=<span class="string">"600"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">"60,30 90,90 30,90"</span> <span class="attr">onclick</span>=<span class="string">"alert('hello')"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">polygon</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="查看示例-9"><a href="#查看示例-9" class="headerlink" title="查看示例"></a><a href="https://jsfiddle.net/miSunLaughing/a46qq163/" target="_blank" rel="external">查看示例</a></h3><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>1、svg遵循XML文档格式，所以所以我们能给其定义css、但同时要注意其每个图形独特的属性。<br>2、内置图形在同一位置的时候，默认的是空间向上重叠，可用z-index来理解，后来者居上。<br>3、我们能用js获取SVG的DOM，并对其进行相关操作。<br>4、定义和分组这两个概念，入手相对较难理解，但对使用D3.js开发的时候很有帮助。定义能减少我们的工作量，提高代码复用率。分组方便我们统一管理SVG中的内置图形。<br>5、SVG内置图形都有自己的坐标属性，正是这些属性，我们才能对内置图形做位置变化。<br>6、动画，SVG有自己的动画定义，但是个人不建议使用，因为我们完全可以使用CSS的动画来实现同样的功能。</p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://www.w3cplus.com/svg/structuring-grouping-referencing-in-svg.html" target="_blank" rel="external">SVG中的结构化、分组和引用</a><br><a href="https://segmentfault.com/a/1190000012071386" target="_blank" rel="external">svg基本教程</a><br><a href="http://www.runoob.com/svg/svg-tutorial.html" target="_blank" rel="external">svg教程</a></p>
+</div><div class="article__tags"><a class="article__tags__item" href="/tags/svg/">svg</a></div><div class="article__author" itemscope itemprop="author" itemtype="https://schema.org/Person"><img class="article__author__image" src="/images/zhongwenhao.jpg" alt="zhongwenhao"><a class="article__author__link" href="zhongwenhao.cn" title="About zhongwenhao" rel="author">zhongwenhao</a><p class="article__author__desc">miSunLaughing</p><div class="article__author__socials"><a class="article__author__socials__item" href="https://github.com/miSunLaughing" title="github" target="_blank"><i class="fa fa-github"></i></a></div><meta itemprop="name" content="zhongwenhao"></div><!-- Disqus Code--><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2018-04-02T15:33:52.000Z"><meta itemprop="articleBody" content="前言SVG 意为可缩放矢量图形（Scalable Vector Graphics）。我们在对SVG绘制的图形缩放的时候，图像是不会失真的。SVG 使用 XML 格式定义图像，也就是说SVG遵循XML文档格式，它在浏览器上是以DOM形式存在，即文档对象模型（Document Object..."><meta itemprop="url" content="http://zhongwenhao.cn/2018/04/02/D3js-quick-start-svg/"><meta itemprop="mainEntityOfPage" content="http://zhongwenhao.cn/2018/04/02/D3js-quick-start-svg/"><div itemscope itemtype="https://schema.org/Organization" itemprop="publisher"><meta itemprop="name" content="钟文浩的博客"><div itemscope itemprop="logo" itemtype="https://schema.org/ImageObject"><meta itemprop="url" content="http://zhongwenhao.cn/images/favicon.ico"></div></div><div itemscope itemtype="https://schema.org/ImageObject" itemprop="image"><meta itemprop="contentUrl" content="http://zhongwenhao.cn/images/banner/svg.jpeg"><meta itemprop="url" content="http://zhongwenhao.cn/images/banner/svg.jpeg"><meta itemprop="width" content="1280"><meta itemprop="height" content="720"></div></article></div></div></div><footer id="footer"><div class="widgets"><div class="widgets-inner"><!-- Jade doesn't support dynamic inclusion with `each`.--><!-- So, I just hard coded the file names that will be included.--><div class="widgets__item"><h3 class="widgets__item__heading">最新文章</h3><ul class="recent-posts"><li class="recent-posts__item"><a href="/2018/04/02/D3js-quick-start-svg/">D3js快速入门 - 1、svg基础</a></li><li class="recent-posts__item"><a href="/2018/04/01/css-pointer-events-none/">css黑魔法之鼠标微交互</a></li><li class="recent-posts__item"><a href="/2018/03/14/linux-chmod/">Linux中chmod命令</a></li><li class="recent-posts__item"><a href="/2018/03/02/nodejs-apply-command-shell-python/">nodejs应用中调用系统命令、shell、python脚本</a></li><li class="recent-posts__item"><a href="/2017/10/10/collection/">收藏夹</a></li></ul></div><div class="widgets__item"><h3 class="widgets__item__heading">标签云</h3><div class="tag-cloud"><a href="/tags/chmod/" style="font-size: 0.75rem;">chmod</a> <a href="/tags/pointer-events/" style="font-size: 0.75rem;">pointer-events</a> <a href="/tags/scripts/" style="font-size: 0.75rem;">scripts</a> <a href="/tags/svg/" style="font-size: 0.75rem;">svg</a> <a href="/tags/前言/" style="font-size: 0.75rem;">前言</a> <a href="/tags/收藏夹/" style="font-size: 0.75rem;">收藏夹</a></div></div><div class="widgets__item"><h3 class="widgets__item__heading">类别</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/D3js/">D3js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nodejs/">Nodejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a><span class="category-list-count">2</span></li></ul></div></div></div><p class="copyright"><small>© 2018 zhongwenhao<br>Powered by <a href="https://hexo.io" rel="external" target="_blank">Hexo</a>, Theme by <a href="https://github.com/hyunseob" rel="external" target="_blank">HyunSeob</a></small></p></footer><script src="/js/sharer.min.js"></script></body></html>

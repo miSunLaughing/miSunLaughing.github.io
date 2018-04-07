@@ -1,3 +1,7 @@
+http://zhongwenhao.cn/2018/04/07/D3-quick-start-chart-draw/
+http://zhongwenhao.cn/2018/04/07/D3-quick-start-axis/
+http://zhongwenhao.cn/2018/04/07/D3-quick-start-scale/
+http://zhongwenhao.cn/2018/04/07/D3-quick-start-dom-data-change/
 http://zhongwenhao.cn/2018/04/03/D3js-quick-start-slect-data/
 http://zhongwenhao.cn/2018/04/02/D3js-quick-start-svg/
 http://zhongwenhao.cn/2018/04/01/css-pointer-events-none/

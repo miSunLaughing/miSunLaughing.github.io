@@ -4,8 +4,88 @@
 
     
   <url>
+    <loc>http://zhongwenhao.cn/2018/04/07/D3-quick-start-chart-draw/</loc>
+    <lastmod>2018-04-07T17:49:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>D3js快速入门 - 6、图表绘制</title>
+        <pubTime>2018-04-07T15:41:23.000Z</pubTime>
+        
+        <tag>d3</tag>
+         
+         
+           
+             
+              <breadCrumb title="D3js" url="http://zhongwenhao.cn/categories/D3js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhongwenhao.cn/2018/04/07/D3-quick-start-axis/</loc>
+    <lastmod>2018-04-07T17:37:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>D3js快速入门 - 5、坐标轴</title>
+        <pubTime>2018-04-07T13:53:10.000Z</pubTime>
+        
+        <tag>d3</tag>
+         
+         
+           
+             
+              <breadCrumb title="D3js" url="http://zhongwenhao.cn/categories/D3js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhongwenhao.cn/2018/04/07/D3-quick-start-scale/</loc>
+    <lastmod>2018-04-07T17:31:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>D3js快速入门 - 4、比例尺</title>
+        <pubTime>2018-04-07T12:37:53.000Z</pubTime>
+        
+        <tag>d3</tag>
+         
+         
+           
+             
+              <breadCrumb title="D3js" url="http://zhongwenhao.cn/categories/D3js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhongwenhao.cn/2018/04/07/D3-quick-start-dom-data-change/</loc>
+    <lastmod>2018-04-07T17:25:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>D3js快速入门 - 3、元素和数据变更</title>
+        <pubTime>2018-04-07T11:17:07.000Z</pubTime>
+        
+        <tag>d3</tag>
+         
+         
+           
+             
+              <breadCrumb title="D3js" url="http://zhongwenhao.cn/categories/D3js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhongwenhao.cn/2018/04/03/D3js-quick-start-slect-data/</loc>
-    <lastmod>2018-04-03T16:45:51.000Z</lastmod>
+    <lastmod>2018-04-07T17:15:29.000Z</lastmod>
     <data>
         <display>
         <title>D3js快速入门 - 2、选择集和数据绑定</title>

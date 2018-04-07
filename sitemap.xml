@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zhongwenhao.cn/2018/04/07/D3-quick-start-chart-draw/</loc>
+    
+    <lastmod>2018-04-07T17:49:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhongwenhao.cn/2018/04/07/D3-quick-start-axis/</loc>
+    
+    <lastmod>2018-04-07T17:37:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhongwenhao.cn/2018/04/07/D3-quick-start-scale/</loc>
+    
+    <lastmod>2018-04-07T17:31:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhongwenhao.cn/2018/04/07/D3-quick-start-dom-data-change/</loc>
+    
+    <lastmod>2018-04-07T17:25:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zhongwenhao.cn/2018/04/03/D3js-quick-start-slect-data/</loc>
     
-    <lastmod>2018-04-03T16:45:51.000Z</lastmod>
+    <lastmod>2018-04-07T17:15:29.000Z</lastmod>
     
   </url>
   
